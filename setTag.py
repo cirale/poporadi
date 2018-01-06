@@ -5,7 +5,7 @@ import sys
 prefix = sys.argv[1]
 now = datetime.datetime.now()
 
-path = '{0}_{1}.mp3'.format(pregix,now.strftime("%Y%m%d"))
+path = '{0}_{1}.mp3'.format(prefix,now.strftime("%Y%m%d"))
 tags = EasyID3(path)
 tags['title'] = prefix
 tags['artist'] = "水瀬いのり　徳井青空　村川梨衣"

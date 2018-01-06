@@ -3,7 +3,7 @@
 LANG=ja_JP.utf8
 
 pid=$$
-date=`date '+%Y-%m-%d-%H_%M'`
+date=`date '+%Y%m%d'`
 playerurl=http://radiko.jp/apps/js/flash/myplayer-release.swf
 playerfile="/tmp/player.swf"
 keyfile="/tmp/authkey.png"
@@ -77,7 +77,7 @@ fi
 
 #
 # get partial key
-#   
+#
 authtoken=`perl -ne 'print $1 if(/x-radiko-authtoken: ([\w-]+)/i)' auth1_fms_${pid}`
 offset=`perl -ne 'print $1 if(/x-radiko-keyoffset: (\d+)/i)' auth1_fms_${pid}`
 length=`perl -ne 'print $1 if(/x-radiko-keylength: (\d+)/i)' auth1_fms_${pid}`
@@ -88,7 +88,7 @@ partialkey=`dd if=$keyfile bs=1 skip=${offset} count=${length} 2> /dev/null | ba
 
 rm -f auth1_fms_${pid}
 
-if [ -f auth2_fms_${pid} ]; then  
+if [ -f auth2_fms_${pid} ]; then
   rm -f auth2_fms_${pid}
 fi
 
@@ -110,7 +110,7 @@ wget -q \
 
 if [ $? -ne 0 -o ! -f auth2_fms_${pid} ]; then
   echo "failed auth2 process"
-  exit 1  
+  exit 1
 fi
 
 #echo "authentication success"
