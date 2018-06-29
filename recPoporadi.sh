@@ -4,4 +4,4 @@ today=$(date "+%Y%m%d")
 python3 ./setTag.py "ご注文はラジオですか？？～チマメ隊のポポロンラジオ～"
 filename="ご注文はラジオですか？？～チマメ隊のポポロンラジオ～_${today}.mp3"
 directoryId=`gdrive-linux-x64 list --query "mimeType='application/vnd.google-apps.folder' and name='ご注文はラジオですか？？～チマメ隊のポポロンラジオ～'" | awk '!/Id/{print $1}'`
-gdrive-linux-x64 upload $filename -p $directoryId
+/usr/local/bin/gdrive-linux-x64 upload $filename -p $directoryId
