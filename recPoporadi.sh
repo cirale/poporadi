@@ -1,6 +1,6 @@
 today=$(date "+%Y%m%d")
 programName="ご注文はラジオですか？？～WELCOME【う・さ！】～"
-artist="佐倉綾音 種田梨沙 佐藤聡美 内田真礼"
+artist="佐倉綾音　種田梨沙　佐藤聡美　内田真礼"
 
 ./rec_radiko.sh QRR 31 . $programName
 python3 ./setTag.py $programName $artist
